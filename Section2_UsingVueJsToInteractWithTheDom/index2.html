@@ -8,7 +8,10 @@
             <p>
                 {{ counter }}
             </p>
-            <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+            <p v-on:mousemove="updateCoordinates">
+                Coordinates: {{ x }} / {{ y }}
+                - <span v-on:mousemove.stop="">DEAD SPOT</span>
+            </p>
         </div>
 
         <script type="text/javascript">
@@ -20,7 +23,7 @@
                     y: 0
                 },
                 methods: {
-                    increase: function(step) {
+                    increase: function(step, event) {
                         this.counter += step;
                     },
                     updateCoordinates: function(event) {
